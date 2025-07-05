@@ -1,11 +1,13 @@
-import { View, Text } from "react-native";
+import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const RegisterScreen = () => {
   return (
-    <SafeAreaView>
-      <View>
-        <Text>RegisterScreen</Text>
+    <SafeAreaView className="flex-1">
+      <View className="flex-1 justify-center items-center bg-neutral-800">
+        <Text className="text-white text-2xl font-semibold">
+          RegisterScreen
+        </Text>
       </View>
     </SafeAreaView>
   );
