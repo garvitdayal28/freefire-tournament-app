@@ -5,7 +5,21 @@ import "./globals.css";
 export default function RootLayout() {
   return (
     <SafeAreaProvider>
-      <Stack />
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="index" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="authentication/login"
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="authentication/register"
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="user"
+          options={{ headerShown: false }}
+        />
+      </Stack>
     </SafeAreaProvider>
   );
 }
