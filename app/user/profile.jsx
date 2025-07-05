@@ -11,7 +11,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function ProfileScreen() {
   return (
-    <View className="flex-1 bg-[#0a0e17]">
+    <SafeAreaView className="flex-1 bg-[#0a0e17]">
       <StatusBar style="light" />
       <SafeAreaView className="flex-1">
         <ScrollView className="p-4" showsVerticalScrollIndicator={false}>
@@ -197,6 +197,6 @@ export default function ProfileScreen() {
           </View>
         </ScrollView>
       </SafeAreaView>
-    </View>
+    </SafeAreaView>
   );
 }
