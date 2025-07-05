@@ -1,92 +1,190 @@
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
+import { LinearGradient } from "expo-linear-gradient";
 import { StatusBar } from "expo-status-bar";
 import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function HomeScreen() {
   return (
-    <View className="flex-1 bg-[#0f172a]">
+    <View className="flex-1 bg-[#0a0e17]">
       <StatusBar style="light" />
       <SafeAreaView className="flex-1">
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           {/* Header */}
-          <View className="flex-row justify-between items-center px-4 py-3">
-            <View className="flex-row items-center">
-              <View className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 items-center justify-center">
-                <Text className="text-white font-bold">PD</Text>
+          <LinearGradient
+            colors={["#4c1d95", "#1e40af"]}
+            start={[0, 0]}
+            end={[1, 0]}
+            className="px-4 py-4 rounded-b-3xl shadow-xl"
+          >
+            <View className="flex-row justify-between items-center">
+              <View className="flex-row items-center">
+                <View className="w-12 h-12 rounded-full bg-black/30 items-center justify-center shadow-2xl border-2 border-purple-400">
+                  <Text className="text-white font-extrabold text-lg">PD</Text>
+                </View>
+                <View className="ml-3">
+                  <Text className="text-gray-300 text-xs font-medium">
+                    Welcome back
+                  </Text>
+                  <Text className="text-white text-xl font-bold">
+                    SHADOW WARRIOR
+                  </Text>
+                </View>
               </View>
-              <Text className="text-white text-lg font-semibold ml-2">
-                Welcome
-              </Text>
-            </View>
 
-            <View className="flex-row items-center">
-              <TouchableOpacity className="mr-4">
-                <Ionicons name="notifications" size={24} color="white" />
-              </TouchableOpacity>
-              <TouchableOpacity className="bg-yellow-500 px-3 py-1 rounded-lg">
-                <Text className="text-black font-bold">$100</Text>
-              </TouchableOpacity>
+              <View className="flex-row items-center">
+                <TouchableOpacity className="mr-4 bg-black/30 p-2 rounded-full">
+                  <Ionicons name="notifications" size={24} color="#d8b4fe" />
+                </TouchableOpacity>
+                <TouchableOpacity className="bg-gradient-to-r from-yellow-500 to-amber-500 px-4 py-2 rounded-xl shadow-2xl">
+                  <View className="flex-row items-center">
+                    <MaterialCommunityIcons
+                      name="bitcoin"
+                      size={18}
+                      color="black"
+                    />
+                    <Text className="text-black font-bold text-base ml-1">
+                      100
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
             </View>
-          </View>
+          </LinearGradient>
 
           {/* Esport Games Section */}
-          <View className="px-4 mt-6">
-            <Text className="text-white text-xl font-bold mb-4">
-              Esport Games
-            </Text>
+          <View className="px-4 mt-8">
+            <View className="flex-row justify-between items-center mb-4">
+              <Text className="text-white text-2xl font-extrabold">
+                Esport Games
+              </Text>
+              <TouchableOpacity className="bg-[#1e293b] px-3 py-1 rounded-full">
+                <Text className="text-purple-400 text-xs font-semibold">
+                  View All
+                </Text>
+              </TouchableOpacity>
+            </View>
+
             <View className="flex-row justify-between">
               <TouchableOpacity className="w-[48%]">
-                <View className="bg-[#131b2f] rounded-lg overflow-hidden">
-                  <View className="h-28 items-center justify-center">
+                <LinearGradient
+                  colors={[
+                    "rgba(126, 34, 206, 0.1)",
+                    "rgba(126, 34, 206, 0.05)",
+                  ]}
+                  className="rounded-2xl overflow-hidden shadow-2xl border border-purple-500/30"
+                >
+                  <View className="h-36 items-center justify-center relative">
+                    <View className="absolute -right-5 -top-5 w-20 h-20 bg-purple-700/20 rounded-full" />
+                    <View className="absolute -left-2 -bottom-4 w-16 h-16 bg-purple-500/20 rounded-full" />
+
                     <Image
                       source={require("../../assets/images/react-logo.png")}
-                      className="w-24 h-24"
+                      className="w-20 h-20"
                       resizeMode="contain"
                     />
-                    <View className="absolute top-0 left-0 right-0 bottom-0 items-center justify-center">
-                      <Text className="text-purple-500 text-xl font-bold mt-16">
-                        SHADOWARENA
+                    <View className="absolute bottom-2 left-0 right-0 items-center">
+                      <Text className="text-purple-400 text-lg font-bold">
+                        SHADOW ARENA
                       </Text>
                     </View>
                   </View>
-                  <View className="bg-[#0d1425] py-2 items-center">
-                    <Text className="text-white font-medium">1v1</Text>
-                  </View>
-                </View>
+                  <LinearGradient
+                    colors={["#4c1d95", "#2e1065"]}
+                    start={[0, 0]}
+                    end={[1, 0]}
+                    className="py-3 items-center rounded-b-2xl"
+                  >
+                    <View className="flex-row items-center">
+                      <MaterialCommunityIcons
+                        name="sword-cross"
+                        size={18}
+                        color="#c4b5fd"
+                      />
+                      <Text className="text-white font-medium text-base ml-2">
+                        1v1 BATTLE
+                      </Text>
+                    </View>
+                  </LinearGradient>
+                </LinearGradient>
               </TouchableOpacity>
 
               <TouchableOpacity className="w-[48%]">
-                <View className="bg-[#131b2f] rounded-lg overflow-hidden">
-                  <View className="h-28 items-center justify-center">
+                <LinearGradient
+                  colors={["rgba(30, 64, 175, 0.1)", "rgba(30, 64, 175, 0.05)"]}
+                  className="rounded-2xl overflow-hidden shadow-2xl border border-blue-500/30"
+                >
+                  <View className="h-36 items-center justify-center relative">
+                    <View className="absolute -left-5 -top-5 w-20 h-20 bg-blue-700/20 rounded-full" />
+                    <View className="absolute -right-2 -bottom-4 w-16 h-16 bg-blue-500/20 rounded-full" />
+
                     <Image
                       source={require("../../assets/images/react-logo.png")}
-                      className="w-24 h-24"
+                      className="w-20 h-20"
                       resizeMode="contain"
                     />
-                    <View className="absolute top-0 left-0 right-0 bottom-0 items-center justify-center">
-                      <Text className="text-purple-500 text-xl font-bold mt-16">
-                        SHADOWARENA
+                    <View className="absolute bottom-2 left-0 right-0 items-center">
+                      <Text className="text-blue-400 text-lg font-bold">
+                        SHADOW ARENA
                       </Text>
                     </View>
                   </View>
-                  <View className="bg-[#0d1425] py-2 items-center">
-                    <Text className="text-white font-medium">BR</Text>
-                  </View>
-                </View>
+                  <LinearGradient
+                    colors={["#1e40af", "#1e3a8a"]}
+                    start={[0, 0]}
+                    end={[1, 0]}
+                    className="py-3 items-center rounded-b-2xl"
+                  >
+                    <View className="flex-row items-center">
+                      <MaterialCommunityIcons
+                        name="account-group"
+                        size={18}
+                        color="#93c5fd"
+                      />
+                      <Text className="text-white font-medium text-base ml-2">
+                        BATTLE ROYALE
+                      </Text>
+                    </View>
+                  </LinearGradient>
+                </LinearGradient>
               </TouchableOpacity>
             </View>
           </View>
 
           {/* My Contests Section */}
           <View className="px-4 mt-8 mb-20">
-            <Text className="text-white text-xl font-bold mb-4">
-              My Contests
-            </Text>
-            {/* Empty state or contests would go here */}
-            <View className="h-60 items-center justify-center">
-              <Text className="text-gray-400">No active contests</Text>
+            <View className="flex-row justify-between items-center mb-4">
+              <Text className="text-white text-2xl font-extrabold">
+                My Contests
+              </Text>
+              <TouchableOpacity className="bg-[#1e293b] px-3 py-1 rounded-full">
+                <Text className="text-purple-400 text-xs font-semibold">
+                  History
+                </Text>
+              </TouchableOpacity>
             </View>
+
+            {/* Empty state or contests would go here */}
+            <LinearGradient
+              colors={["#1e293b", "#0f172a"]}
+              className="rounded-2xl overflow-hidden shadow-2xl border border-gray-700/50 p-6"
+            >
+              <View className="h-48 items-center justify-center">
+                <MaterialCommunityIcons
+                  name="trophy-variant-outline"
+                  size={56}
+                  color="#6b7280"
+                />
+                <Text className="text-gray-400 text-lg mt-4 text-center">
+                  No active contests
+                </Text>
+                <TouchableOpacity className="mt-6 bg-gradient-to-r from-purple-600 to-blue-600 px-6 py-3 rounded-xl shadow-lg">
+                  <Text className="text-white font-bold">
+                    JOIN A TOURNAMENT
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </LinearGradient>
           </View>
         </ScrollView>
       </SafeAreaView>
