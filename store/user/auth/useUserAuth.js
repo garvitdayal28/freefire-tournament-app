@@ -76,9 +76,11 @@ export const useUserAuth = create((set, get) => ({
         password
       );
 
+      console.log("User logged in:", userCredential.user);
+      console.log("User UID:", userCredential);
+
       // Get additional user data from Firestore
       const userDoc = await getDoc(doc(db, "users", userCredential.user.uid));
-      console.log("User Document:", userDoc.exists(), userDoc.data());
 
       if (userDoc.exists()) {
         console.log("User data found in Firestore");
@@ -233,6 +235,27 @@ export const useUserAuth = create((set, get) => ({
 
     // Return unsubscribe function to clean up
     return unsubscribe;
+  },
+
+  // Fetch user data from Firestore and update the store
+  fetchUserData: async () => {
+    const { user } = get();
+    if (!user || !user.uid) return;
+    try {
+      const userDoc = await getDoc(doc(db, "users", user.uid));
+      if (userDoc.exists()) {
+        const userData = userDoc.data();
+        set({
+          user: {
+            ...user,
+            ...userData,
+          },
+        });
+        return userData;
+      }
+    } catch (error) {
+      set({ error: error.message || "Failed to fetch user data" });
+    }
   },
 
   // Reset error state

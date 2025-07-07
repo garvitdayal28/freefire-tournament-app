@@ -21,13 +21,12 @@ export default function Index() {
           <MaterialCommunityIcons name="account" size={24} color="white" />
           <Text className="text-white text-lg font-bold ml-3">User Login</Text>
         </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={() => router.push("/admin/authentication/login")}
+         <TouchableOpacity
+          onPress={() => router.push("/user")}
           className="bg-red-600 rounded-2xl py-4 flex-row items-center justify-center"
         >
           <MaterialCommunityIcons name="shield-crown" size={24} color="white" />
-          <Text className="text-white text-lg font-bold ml-3">Admin Panel</Text>
+          <Text className="text-white text-lg font-bold ml-3">User Side </Text>
         </TouchableOpacity>
       </View>
     </View>

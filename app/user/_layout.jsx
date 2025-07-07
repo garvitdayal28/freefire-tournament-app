@@ -58,6 +58,28 @@ export default function UserLayout() {
         }}
       />
       <Tabs.Screen
+        name="matches"
+        options={{
+          title: "Matches",
+          tabBarIcon: ({ color, focused }) => (
+            <View className="items-center justify-center flex h-full">
+              <View
+                className={
+                  "flex items-center justify-center flex-col h-16 w-16" +
+                  (focused ? " bg-purple-900/40 rounded-full shadow-lg" : "")
+                }
+              >
+                <MaterialCommunityIcons
+                  name="trophy-outline"
+                  size={focused ? 28 : 24}
+                  color={color}
+                />
+              </View>
+            </View>
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="wallet"
         options={{
           title: "Wallet",
